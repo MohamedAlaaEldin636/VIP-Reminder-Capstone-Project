@@ -2,7 +2,7 @@
 
 Created as part of Udacity [Android Developer Nanodegree Program](https://eg.udacity.com/course/android-developer-nanodegree-by-google--nd801).
 
-<img src="https://github.com/MohamedAlaaEldin636/VIP-Reminder-Capstone-Project/blob/master/VIPReminder/src/main/res/mipmap-xxxhdpi/ic_app_launcher_circle.png" />
+<img src="https://github.com/MohamedAlaaEldin636/VIP-Reminder-Capstone-Project/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_app_launcher_circle.png" />
 
 ## App Notes ( Setup and info )
 
