@@ -4,6 +4,30 @@ Created as part of Udacity [Android Developer Nanodegree Program](https://eg.uda
 
 <img src="https://github.com/MohamedAlaaEldin636/VIP-Reminder-Capstone-Project/blob/master/VIPReminder/src/main/res/mipmap-xxxhdpi/ic_app_launcher_circle.png" />
 
+## App Notes ( Setup and info )
+
+1. App works from installRelease gradle task and keystore file is inside ( /keyStore ) directory
+  And the Alias name and password can be found in build.gradle of the app level, just before hitting installRelease
+  in build.gradle app level change path of keystore to the same location but in your PC the {$rootDir}/keyStore/myKeyStore.jks
+  
+2. TODOs 
+  * put your google API Key in manifest 
+  * put in build.gradle your corresponding explorer file path in config of signing config and run the installRelease and now it works.
+  
+3. Todo Notes in code beside comments. ( Notes for the reviewer )
+
+4. Big Note -> Reminders are divided into five categories ( for more info look at the next lines )
+
+  * to get task as ( today ), set up time in current day greater than current time.
+  
+  * to get task as ( tomorrow ), set up time to tomorrow and you will get it.
+  
+  * to get task as ( Upcoming ), same as above 2 but with time greater than tomorrow.
+  
+  * to get task as ( done ) either mark as done from item like-overflow menu while repeat is once or when time comes as well.
+  
+  * to get task as ( overdue ) go to history tab and mark any task that it's time passed as undone from the item like-overflow menu.
+
 ## Libraries / Tech Used
 * [MVVM Design Pattern](https://github.com/googlesamples/android-architecture-components/tree/master/BasicSample/#readme)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding)
