@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    Refer to App Widget Documentation for margin information
+    http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    and since min sdk I support is 16, so no need for dimens-v14.xml
+    -->
+    <dimen name="widget_margin">0dp</dimen>
+
+    <!-- General -->
+    <dimen name="app_bar_layout_elevation">4dp</dimen>
+    <dimen name="one_dp">1dp</dimen> <!-- Used in linear layout with no background for views to take weight of 1 -->
+
+    <!-- activity_main.xml -->
+    <dimen name="toolbar_inset_start">16dp</dimen>
+
+    <!-- fragment_viewpager_main.xml -->
+    <dimen name="powered_by_google_area_height">60dp</dimen>
+    <dimen name="image_view_height_and_width_in_empty_view">72dp</dimen> <!-- Note i need it to be square that's why i made it width and height -->
+    <dimen name="title_empty_view_margin">8dp</dimen>
+    <dimen name="fragment_viewpager_fab_margin">16dp</dimen>
+    <dimen name="powered_by_google_area_padding_end">72dp</dimen> <!-- It is predicted as fab max is 56 dp + 16 dp margin, so I ensure no intersection will occur -->
+    <dimen name="powered_by_google_image_padding_top">8dp</dimen>
+    <dimen name="powered_by_google_privacy_text_padding_bottom">4dp</dimen>
+
+    <!-- dialog_repeat_picker.xml -->
+    <dimen name="dialog_repeat_picker_max_width">600dp</dimen>
+    <dimen name="dialog_repeat_picker_margin_left_and_right">16dp</dimen>
+    <dimen name="dialog_repeat_picker_title_margin">16dp</dimen>
+    <dimen name="dialog_repeat_radio_button_padding">16dp</dimen>
+    <dimen name="dialog_repeat_radio_button_margin">16dp</dimen>
+    <dimen name="dialog_repeat_linear_layout_margin">16dp</dimen>
+
+    <!-- activity_add_reminder.xml -->
+    <dimen name="add_reminder_app_bar_layout_height">186dp</dimen>
+    <dimen name="add_reminder_content_inset_start">72dp</dimen>
+    <dimen name="add_reminder_label_margin">16dp</dimen>
+    <dimen name="add_reminder_fab">16dp</dimen>
+    <dimen name="add_reminder_first_option_margin_top">24dp</dimen>
+    <dimen name="add_reminder_any_option_margin">16dp</dimen>
+    <dimen name="add_reminder_any_option_min_height">30dp</dimen>
+    <dimen name="add_reminder_any_option_text_view_padding_start">32dp</dimen>
+    <dimen name="add_reminder_any_option_value_text_view_max_width">175dp</dimen>
+    <dimen name="add_reminder_day_indicator_width_and_height">30dp</dimen>
+    <dimen name="add_reminder_long_description_margin">16dp</dimen>
+    <dimen name="add_reminder_long_description_padding">8dp</dimen>
+
+    <!-- item_reminder.xml -->
+    <dimen name="item_reminder_card_view_margin">16dp</dimen>
+    <dimen name="item_reminder_card_view_margin_bottom">8dp</dimen>
+    <dimen name="item_reminder_card_view_elevation">4dp</dimen>
+    <dimen name="item_reminder_linear_layout_padding">8dp</dimen>
+    <dimen name="item_reminder_any_info_height">24dp</dimen>
+    <dimen name="item_reminder_any_info_margin_top">8dp</dimen>
+    <dimen name="item_reminder_any_info_image_view_height">18dp</dimen>
+    <dimen name="item_reminder_any_info_text_view_padding">2dp</dimen> <!-- padding should be in scale of 4, i chose 2 dp as i want this part to be small -->
+    <dimen name="item_reminder_title_margin">16dp</dimen>
+    <dimen name="item_reminder_title_margin_bottom">8dp</dimen>
+    <dimen name="item_reminder_title_text_view_padding_start">32dp</dimen>
+
+    <!-- item_widget_category.xml -->
+    <dimen name="widget_item_root_padding">8dp</dimen>
+    <dimen name="widget_item_any_info_margin_top">4dp</dimen>
+
+    <!-- list_widget_provider.xml -->
+    <dimen name="list_widget_title_padding">4dp</dimen>
+    <dimen name="list_widget_title_text_size">18sp</dimen>
+    <dimen name="list_widget_list_view_padding">4dp</dimen>
+
+    <!-- list_widget_provider_configure.xml -->
+    <dimen name="list_widget_conf_toolbar_content_inset_start">16dp</dimen>
+    <dimen name="list_widget_conf_item_padding_top_and_bottom">8dp</dimen>
+    <dimen name="list_widget_conf_item_padding_left_and_right">16dp</dimen>
+    <dimen name="list_widget_conf_horz_line_margin">16dp</dimen>
+    <dimen name="list_widget_conf_button_margin">16dp</dimen>
+    <dimen name="list_widget_conf_horz_line_height">1dp</dimen>
+
+
+
+
+
+
+
+
+</resources>

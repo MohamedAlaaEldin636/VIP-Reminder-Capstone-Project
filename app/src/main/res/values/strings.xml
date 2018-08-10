@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">VIP Reminder</string>
+
+    <!-- Main Activity -->
+    <string name="upcoming">Upcoming</string>
+    <!-- Fav already in content descriptions section -->
+    <string name="history">History</string>
+
+    <!-- View Pager Main Fragment -->
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="done">Done</string>
+    <string name="overdue">Overdue</string>
+
+    <!-- item_reminder.xml -->
+    <string name="title_icon">Title Icon</string>
+
+    <!-- fragment_viewpager_main.xml -->
+    <string name="empty_view">Empty View</string>
+    <string name="no_tasks_found_here">No tasks found here</string>
+    <string name="add_tasks_from_the_below_button">Add tasks from the below button</string>
+    <string name="no_history_found">No history found</string>
+    <string name="history_subtitle">When a task ends, it \'ll be shown here</string>
+    <string name="no_favourite_found">No favourite tasks found</string>
+    <string name="favourite_subtitle">Mark tasks as favourite from upcoming or history</string>
+
+    <!-- activity_add_reminder.xml -->
+    <string name="add_label_here_ellipsized">Add label here…</string>
+    <string name="place_and_time_conditions_must_both_be_met">Place And Time Conditions must both be met</string>
+    <string name="nothing_selected">Nothing selected</string>
+    <string name="long_description_optional">Long Description (Optional)</string>
+
+    <!-- dialog_repeat_picker.xml -->
+    <string name="once">Once</string>
+    <string name="hourly">Hourly</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+
+    <!-- Add Reminder Activity -->
+    <string name="on_permission_access_fine_location_denied">Permission Denied</string>
+    <string name="on_permission_access_fine_location_denied_action">Request</string>
+    <string name="unknown_place_name">Unknown Place Name</string>
+    <string name="monday_two_letters">MO</string>
+    <string name="tuesday_two_letters">TU</string>
+    <string name="wednesday_two_letters">WE</string>
+    <string name="thursday_two_letters">TH</string>
+    <string name="friday_two_letters">FR</string>
+    <string name="saturday_two_letters">SA</string>
+    <string name="sunday_two_letters">SU</string>
+    <string name="please_set_label_to_the_reminder">Please set label to the reminder</string>
+    <string name="please_set_reminder_for_upcoming_time">Please set reminder for upcoming time</string>
+    <string name="saved_successfully">Saved Successfully</string>
+    <string name="add_reminder">Add Reminder</string>
+    <string name="edit_reminder">Edit Reminder</string>
+
+    <!-- Main Activity -->
+    <string name="no_internet_connection">No Internet Connection</string>
+
+    <!-- activity_main.xml -->
+    <string name="dashboard">Dashboard</string>
+
+    <!-- menu_add_reminder_activity.xml -->
+    <string name="reset_all">Reset All</string>
+
+    <!-- menu_main_activity -->
+    <string name="delete_all">Delete All</string>
+
+    <!-- Reminder List Recycler View Adapter -->
+    <string name="vip_reminder_label">VIP Reminder Label</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+
+    <!-- popup_menu_item_reminder.xml -->
+    <string name="undone">Undone</string>
+    <string name="edit">Edit</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+
+    <!-- Notification Utils -->
+    <string name="notification_channel_reminder_name">Reminder</string>
+
+    <!-- Reminder From Worker Broadcast Receiver -->
+    <string name="look_at_the_time">Look at the time</string>
+
+    <string name="both_time_and_place">Both Time and Place</string>
+
+    <string name="entered_an_important_place">Entered an important place</string>
+
+    <string name="privacy">http://www.google.com/policies/privacy</string>
+    <string name="powered_by_google">Powered by google</string>
+
+    <!-- launcher_widget_provider.xml -->
+    <string name="vip_reminder_app_launcher">VIP Reminder App Launcher</string>
+
+    <!-- list_widget -->
+    <string name="all">All</string>
+
+    <string name="unknown">Unknown</string>
+
+    <!-- AndroidManifest.xml -->
+    <string name="app_launcher">App Launcher</string>
+    <string name="reminder_list">Reminder List</string>
+
+    <!-- list_widget_provider.xml -->
+    <string name="no_reminders_found">No Reminders Found</string>
+
+    <!-- list_widget_provider_configure.xml -->
+    <string name="choose_category">Choose category</string>
+
+    <!-- Content Description -->
+    <string name="favourite">Favourite</string>
+    <string name="more">More</string>
+    <string name="time">Time</string>
+    <string name="place">Place</string>
+    <string name="date">Date</string>
+    <string name="repeat">Repeat</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+
+</resources>

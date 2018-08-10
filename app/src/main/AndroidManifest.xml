@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.mohamedalaa.com.vipreminder">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- for isCurrentlyOnline() -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_app_launcher_square"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_app_launcher_circle"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- TODO (1) -> insert-your-api-key-here -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="insert-your-api-key-here" />
+
+        <activity android:name=".view.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.AddReminderActivity"
+            android:parentActivityName=".view.MainActivity"/>
+
+        <receiver
+            android:name=".customClasses.GeofenceBroadcastReceiver"
+            android:exported="false" />
+
+        <receiver android:name=".widgets.LauncherWidgetProvider"
+            android:label="@string/app_launcher">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/launcher_widget_provider_info" />
+        </receiver>
+        <receiver android:name=".widgets.ListWidgetProvider"
+            android:label="@string/reminder_list">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/list_widget_provider_info" />
+        </receiver>
+
+        <activity android:name=".widgets.ListWidgetProviderConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".widgets.WidgetServiceReminders"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+    </application>
+
+</manifest>

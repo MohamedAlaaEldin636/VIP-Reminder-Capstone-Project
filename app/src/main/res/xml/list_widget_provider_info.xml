@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Update Widget Dynamically only since no need to update it except when
+
+Insert, Update or Delete any row(s) in database.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="android.mohamedalaa.com.vipreminder.widgets.ListWidgetProviderConfigureActivity"
+    android:initialLayout="@layout/list_widget_provider"
+    android:minHeight="110dp"
+    android:minWidth="110dp"
+    android:previewImage="@mipmap/ic_widget_list"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="0"/>

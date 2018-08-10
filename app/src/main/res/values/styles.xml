@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/lightBlueColorPrimary</item>
+        <item name="colorPrimaryDark">@color/lightBlueColorPrimaryDark</item>
+        <item name="colorAccent">@color/pinkColorAccent</item>
+
+        <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+        <item name="cardViewStyle">@style/CardView</item>
+        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+    </style>
+
+    <!--
+    Setting window animation to all activities
+    and we can change it via code or xml for certain activities if we need to.
+    -->
+    <style name="WindowTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="ActionButtonOverflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@android:color/white</item>
+    </style>
+
+</resources>

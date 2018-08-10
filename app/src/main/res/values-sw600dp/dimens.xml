@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- activity_add_reminder.xml -->
+    <dimen name="add_reminder_content_inset_start">80dp</dimen>
+
+</resources>

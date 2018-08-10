@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:clickable="false"
+        android:focusable="false">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/rootCardViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@android:color/white"
+
+            android:layout_marginTop="@dimen/item_reminder_card_view_margin"
+            android:layout_marginLeft="@dimen/item_reminder_card_view_margin"
+            android:layout_marginRight="@dimen/item_reminder_card_view_margin"
+            android:layout_marginBottom="@dimen/item_reminder_card_view_margin_bottom"
+
+            android:foreground="?selectableItemBackground"
+
+            android:clickable="true"
+            android:focusable="true"
+
+            app:cardElevation="@dimen/item_reminder_card_view_elevation"
+
+            tools:ignore="UseCompoundDrawables"
+
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:background="@android:color/white"
+
+                android:padding="@dimen/item_reminder_linear_layout_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/labelTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+
+                        tools:text="Label is here."
+
+                        android:layout_gravity="center_vertical"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/black"/>
+
+                    <ImageView
+                        android:id="@+id/moreVertImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:background="@android:color/white"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/ic_more_vert_24px"
+
+                        android:foreground="?selectableItemBackground"
+
+                        android:contentDescription="@string/more"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_reminder_any_info_height"
+                    android:orientation="horizontal"
+
+                    android:gravity="center_vertical"
+
+                    android:layout_marginTop="@dimen/item_reminder_any_info_margin_top">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/item_reminder_any_info_image_view_height"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/ic_alarm_24px"
+
+                        android:contentDescription="@string/time"/>
+
+                    <TextView
+                        android:id="@+id/timeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        tools:text="1:05 AM"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@android:color/black"
+
+                        android:layout_marginLeft="@dimen/item_reminder_any_info_text_view_padding"
+                        android:layout_marginRight="@dimen/item_reminder_any_info_text_view_padding"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placeLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_reminder_any_info_height"
+                    android:orientation="horizontal"
+
+                    android:gravity="center_vertical"
+
+                    android:layout_marginTop="@dimen/item_reminder_any_info_margin_top"
+
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/item_reminder_any_info_image_view_height"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/ic_baseline_place_24px"
+
+                        android:contentDescription="@string/place"/>
+
+                    <TextView
+                        android:id="@+id/placeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        tools:text="Place Name"
+
+                        android:maxLines="1"
+                        android:ellipsize="end"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@android:color/black"
+
+                        android:layout_marginLeft="@dimen/item_reminder_any_info_text_view_padding"
+                        android:layout_marginRight="@dimen/item_reminder_any_info_text_view_padding"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_reminder_any_info_height"
+                    android:orientation="horizontal"
+
+                    android:gravity="center_vertical"
+
+                    android:layout_marginTop="@dimen/item_reminder_any_info_margin_top">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/item_reminder_any_info_image_view_height"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/ic_calendar_today_24px"
+
+                        android:contentDescription="@string/date"/>
+
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        tools:text="24 Aug, 2018"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@android:color/black"
+
+                        android:layout_marginLeft="@dimen/item_reminder_any_info_text_view_padding"
+                        android:layout_marginRight="@dimen/item_reminder_any_info_text_view_padding"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/item_reminder_any_info_image_view_height"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/ic_auto_renew_24px"
+
+                        android:contentDescription="@string/repeat"/>
+
+                    <TextView
+                        android:id="@+id/repeatTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+
+                        tools:text="Hourly"
+                        android:gravity="center_vertical"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@android:color/black"
+
+                        android:layout_marginLeft="@dimen/item_reminder_any_info_text_view_padding"
+                        android:layout_marginRight="@dimen/item_reminder_any_info_text_view_padding"/>
+
+                    <ImageView
+                        android:id="@+id/favImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/ic_baseline_star_24px"
+
+                        android:foreground="?selectableItemBackground"
+
+                        android:contentDescription="@string/favourite"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/rootTitleLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+
+            android:layout_marginTop="@dimen/item_reminder_title_margin"
+            android:layout_marginLeft="@dimen/item_reminder_title_margin"
+            android:layout_marginRight="@dimen/item_reminder_title_margin"
+            android:layout_marginBottom="@dimen/item_reminder_title_margin_bottom"
+
+            android:foreground="?selectableItemBackground"
+
+            android:clickable="true"
+            android:focusable="true"
+
+            tools:ignore="UseCompoundDrawables"
+
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_vertical"
+
+                android:src="@drawable/ic_event_note_24px"
+
+                android:contentDescription="@string/title_icon"/>
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+
+                tools:text="Today"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black"
+
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+
+                android:paddingStart="@dimen/item_reminder_title_text_view_padding_start"
+                android:paddingLeft="@dimen/item_reminder_title_text_view_padding_start"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"/>
+            <!-- Replacement of Today -> This Month or etc... -->
+
+            <ImageView
+                android:id="@+id/arrowImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_vertical"
+
+                android:src="@drawable/ic_arrow_left_24px"
+
+                android:scaleX="1.3"
+                android:scaleY="1.3"
+
+                android:contentDescription="@string/more"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>

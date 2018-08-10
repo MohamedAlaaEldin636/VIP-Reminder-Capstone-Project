@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+
+            app:elevation="@dimen/app_bar_layout_elevation">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:title="@string/choose_category"
+                app:titleTextColor="@android:color/white"
+
+                app:contentInsetStart="@dimen/list_widget_conf_toolbar_content_inset_start"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <TextView
+            android:id="@+id/allTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingBottom="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingLeft="@dimen/list_widget_conf_item_padding_left_and_right"
+            android:paddingRight="@dimen/list_widget_conf_item_padding_left_and_right"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+
+            android:text="@string/all"
+
+            android:foreground="?selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_widget_conf_horz_line_height"
+            android:background="@color/almost_black_is_grey_800"
+
+            android:layout_marginLeft="@dimen/list_widget_conf_horz_line_margin"
+            android:layout_marginRight="@dimen/list_widget_conf_horz_line_margin"/>
+
+        <TextView
+            android:id="@+id/todayTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingBottom="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingLeft="@dimen/list_widget_conf_item_padding_left_and_right"
+            android:paddingRight="@dimen/list_widget_conf_item_padding_left_and_right"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+
+            android:text="@string/today"
+
+            android:foreground="?selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_widget_conf_horz_line_height"
+            android:background="@color/almost_black_is_grey_800"
+
+            android:layout_marginLeft="@dimen/list_widget_conf_horz_line_margin"
+            android:layout_marginRight="@dimen/list_widget_conf_horz_line_margin"/>
+
+        <TextView
+            android:id="@+id/tomorrowTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingBottom="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingLeft="@dimen/list_widget_conf_item_padding_left_and_right"
+            android:paddingRight="@dimen/list_widget_conf_item_padding_left_and_right"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+
+            android:text="@string/tomorrow"
+
+            android:foreground="?selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_widget_conf_horz_line_height"
+            android:background="@color/almost_black_is_grey_800"
+
+            android:layout_marginLeft="@dimen/list_widget_conf_horz_line_margin"
+            android:layout_marginRight="@dimen/list_widget_conf_horz_line_margin"/>
+
+        <TextView
+            android:id="@+id/upcomingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingBottom="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingLeft="@dimen/list_widget_conf_item_padding_left_and_right"
+            android:paddingRight="@dimen/list_widget_conf_item_padding_left_and_right"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+
+            android:text="@string/upcoming"
+
+            android:foreground="?selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_widget_conf_horz_line_height"
+            android:background="@color/almost_black_is_grey_800"
+
+            android:layout_marginLeft="@dimen/list_widget_conf_horz_line_margin"
+            android:layout_marginRight="@dimen/list_widget_conf_horz_line_margin"/>
+
+        <TextView
+            android:id="@+id/doneTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingBottom="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingLeft="@dimen/list_widget_conf_item_padding_left_and_right"
+            android:paddingRight="@dimen/list_widget_conf_item_padding_left_and_right"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+
+            android:text="@string/done"
+
+            android:foreground="?selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_widget_conf_horz_line_height"
+            android:background="@color/almost_black_is_grey_800"
+
+            android:layout_marginLeft="@dimen/list_widget_conf_horz_line_margin"
+            android:layout_marginRight="@dimen/list_widget_conf_horz_line_margin"/>
+
+        <TextView
+            android:id="@+id/overdueTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingBottom="@dimen/list_widget_conf_item_padding_top_and_bottom"
+            android:paddingLeft="@dimen/list_widget_conf_item_padding_left_and_right"
+            android:paddingRight="@dimen/list_widget_conf_item_padding_left_and_right"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+
+            android:text="@string/overdue"
+
+            android:foreground="?selectableItemBackground"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_widget_conf_horz_line_height"
+            android:background="@color/almost_black_is_grey_800"
+
+            android:layout_marginLeft="@dimen/list_widget_conf_horz_line_margin"
+            android:layout_marginRight="@dimen/list_widget_conf_horz_line_margin"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/list_widget_conf_button_margin"
+            android:layout_gravity="center"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/black"
+
+            android:text="@string/cancel"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</layout>
