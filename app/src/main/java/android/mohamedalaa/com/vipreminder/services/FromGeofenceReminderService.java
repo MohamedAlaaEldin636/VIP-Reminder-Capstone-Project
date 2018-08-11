@@ -1,26 +1,38 @@
-package android.mohamedalaa.com.vipreminder.customClasses;
+package android.mohamedalaa.com.vipreminder.services;
 
+import android.app.IntentService;
 import android.content.Context;
+import android.content.Intent;
 import android.mohamedalaa.com.vipreminder.BaseApplication;
 import android.mohamedalaa.com.vipreminder.DataRepository;
 import android.mohamedalaa.com.vipreminder.R;
 import android.mohamedalaa.com.vipreminder.model.database.ReminderEntity;
 import android.mohamedalaa.com.vipreminder.utils.NotificationUtils;
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 /**
- * Created by Mohamed on 8/8/2018.
+ * Created by Mohamed on 8/11/2018.
  *
  */
-public class FromGeofenceReminderWorker {
+public class FromGeofenceReminderService extends IntentService {
 
-    /*static final String INPUT_DATA_KEY_REMINDER_ENTITY_ID = "INPUT_DATA_KEY_REMINDER_ENTITY_ID";
+    public FromGeofenceReminderService() {
+        super("FromGeofenceReminderService");
+    }
 
-    @NonNull
     @Override
-    public aResult doWork() {
-        aData data = getInputData();
-        long rowId = data.getLong(INPUT_DATA_KEY_REMINDER_ENTITY_ID, -1);
+    protected void onHandleIntent(@Nullable Intent intent) {
+        long rowId = -1;
+        if (intent != null){
+            // Used action not any other extra so that, I can cancel it with alarmManager.cancel();
+            String stringOfRowId = intent.getAction();
+
+            try {
+                rowId = Long.parseLong(stringOfRowId);
+            }catch (Exception e){
+                // In case of any un-expected error
+            }
+        }
 
         Context context = getApplicationContext();
 
@@ -35,12 +47,10 @@ public class FromGeofenceReminderWorker {
             NotificationUtils.makeReminderNotification(
                     context, context.getString(R.string.entered_an_important_place), label);
 
-            // No need to schedule work manager
+            // No need to schedule alarm manager
             // As this is fired when we depend on places only or depend on both while
             // condition must NOT be met, which means work manager is already scheduled
             // in the ReminderWorker.
         }
-
-        return aResult.SUCCESS;
-    }*/
+    }
 }

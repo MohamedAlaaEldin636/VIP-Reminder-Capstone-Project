@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.mohamedalaa.com.vipreminder.DataRepository;
 import android.mohamedalaa.com.vipreminder.model.database.ReminderEntity;
+import android.mohamedalaa.com.vipreminder.utils.AlarmManagerUtils;
 import android.mohamedalaa.com.vipreminder.utils.StringUtils;
 import android.mohamedalaa.com.vipreminder.widgets.ListWidgetProvider;
 import android.os.AsyncTask;
@@ -12,9 +13,7 @@ import android.os.AsyncTask;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import androidx.work.WorkManager;
 import timber.log.Timber;
 
 /**
@@ -33,16 +32,10 @@ public class DeleteReminderAsyncTask extends AsyncTask<ReminderEntity , Void , V
 
     @Override
     protected Void doInBackground(ReminderEntity... reminderEntities) {
-        WorkManager workManager = WorkManager.getInstance();
         List<String> placesIds = new ArrayList<>();
         for (ReminderEntity reminderEntity : reminderEntities){
-            try {
-                workManager.cancelWorkById(UUID.fromString(reminderEntity.getWorkRequestUUID()));
-            }catch (Exception e){
-                // If there was no UUID
-                Timber.v("Error in deleting workManager by UUID -> "
-                        + e.getMessage() + "\nReminder rowId -> " + reminderEntity.getId());
-            }
+            // Remove Alarm Manager
+            AlarmManagerUtils.cancelAlarmManager(contextWeakReference.get(), reminderEntity.getId());
 
             if (! StringUtils.isNullOrEmpty(reminderEntity.getPlaceId()) && ! reminderEntity.isDateAndTimeCondition()){
                 placesIds.add(reminderEntity.getPlaceId());

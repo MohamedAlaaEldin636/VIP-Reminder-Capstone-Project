@@ -3,6 +3,7 @@ package android.mohamedalaa.com.vipreminder.customClasses;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.mohamedalaa.com.vipreminder.utils.AlarmManagerUtils;
 import android.mohamedalaa.com.vipreminder.utils.StringUtils;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -20,8 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 import timber.log.Timber;
 
 /**
@@ -34,7 +33,7 @@ public class GeofenceStatic {
     // --- Constants
 
     private static final float GEOFENCE_RADIUS = 50; // 50 meters
-    private static final long GEOFENCE_TIMEOUT = TimeUnit.DAYS.toMillis(30); // 1 Month
+    public static final long GEOFENCE_TIMEOUT = TimeUnit.DAYS.toMillis(30); // 1 Month
 
     private static final int PENDING_INTENT_REQUEST_CODE = 302;
 
@@ -76,14 +75,11 @@ public class GeofenceStatic {
 
             Timber.v("Done with registering place by id");
 
-            // Make worker to be notified after 1 month to re-register all geofences
+            // Make alarm manager to be notified after 1 month to re-register all geofences
             // since timeout cannot be FOREVER since that thing is dangerous to be used
             // since even when this app is un-installed the geofence will remain
             // so better to have timeout and i chose 1 month
-            OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(RefreshGeofencesWorker.class)
-                    .setInitialDelay(GEOFENCE_TIMEOUT, TimeUnit.MILLISECONDS)
-                    .build();
-            WorkManager.getInstance().enqueue(workRequest);
+            AlarmManagerUtils.setRefreshGeofenceAlarm(context, GEOFENCE_TIMEOUT);
 
             Timber.v("Done with making geofence worker");
         } catch (SecurityException securityException) {
@@ -127,7 +123,7 @@ public class GeofenceStatic {
 
     private PendingIntent getGeofencePendingIntent(Context context, int rowId) {
         Intent intent = new Intent(context, GeofenceBroadcastReceiver.class);
-        intent.putExtra(GeofenceBroadcastReceiver.INTENT_KEY_ROW_ID, rowId);
+        intent.setAction(String.valueOf(rowId));
 
         return PendingIntent.getBroadcast(
                 context, PENDING_INTENT_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);

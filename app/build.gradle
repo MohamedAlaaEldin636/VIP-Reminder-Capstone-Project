@@ -5,8 +5,7 @@ android {
         config {
             keyAlias 'Mohamed Alaa'
             keyPassword '123456789'
-            // TODO (2) Change below root dir in your PC
-            storeFile file('F:/yyyyyyyyyyyyyyyyy/xyz-reader-starter-code-master/VIPReminder/keyStore/myKeyStore.jks')
+            storeFile rootProject.file('/keyStore/myKeyStore.jks')
             storePassword '123456789'
         }
     }
@@ -42,14 +41,7 @@ dependencies {
     def support_library_packages_version = "27.1.1"
     def lifecycle_version = "1.1.1"
     def room_version = "1.1.1"
-    def work_version = "1.0.0-alpha06"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
-    // Work Manager
-    implementation "android.arch.work:work-runtime:$work_version"
-
-    // optional - Firebase JobDispatcher support For WorkManager
-    implementation "android.arch.work:work-firebase:$work_version"
 
     // Support Library Packages
     implementation "com.android.support:support-annotations:$support_library_packages_version"
@@ -73,11 +65,6 @@ dependencies {
     // Room
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
-
-    // Testing Libraries
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // Google Services
     implementation 'com.google.android.gms:play-services-places:15.0.1'

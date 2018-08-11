@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.mohamedalaa.com.vipreminder.DataRepository;
 import android.mohamedalaa.com.vipreminder.model.database.ReminderEntity;
+import android.mohamedalaa.com.vipreminder.utils.AlarmManagerUtils;
 import android.mohamedalaa.com.vipreminder.utils.StringUtils;
 import android.mohamedalaa.com.vipreminder.widgets.ListWidgetProvider;
 import android.os.AsyncTask;
@@ -16,9 +17,6 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import androidx.work.Data;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 import timber.log.Timber;
 
 /**
@@ -76,27 +74,7 @@ public class InsertReminderAsyncTask extends AsyncTask<Void, Void, Void> {
         long initialDelay = reminderEntity.getTime() - System.currentTimeMillis();
         if (initialDelay > 0) {
             // That check if in case that the reminder depend only on place.
-            Data inputData = new Data.Builder()
-                    .putLong(ReminderWorker.INPUT_DATA_KEY_REMINDER_ENTITY_ID, id)
-                    .build();
-            OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(ReminderWorker.class)
-                    .setInputData(inputData)
-                    .setInitialDelay(initialDelay, TimeUnit.MILLISECONDS)
-                    .build();
-            WorkManager.getInstance().enqueue(workRequest);
-
-            // we set the UUID in database in case we want to delete a reminder,
-            // so we can cancel that work.
-            UUID uuid = workRequest.getId();
-            String workRequestUUID = uuid.toString();
-            reminderEntity.setWorkRequestUUID(workRequestUUID);
-
-            reminderEntity.setId((int) id);
-
-            int number = dataRepository.updateReminder(reminderEntity);
-
-            Timber.v("Updated From Inserted row with id = " + id
-                    + ",\nand number of rows updated = " + number);
+            AlarmManagerUtils.setReminderAlarm(contextWeakReference.get(), id, initialDelay);
         }
 
         /*

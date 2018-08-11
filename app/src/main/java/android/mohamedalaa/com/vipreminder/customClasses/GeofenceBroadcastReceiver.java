@@ -3,10 +3,8 @@ package android.mohamedalaa.com.vipreminder.customClasses;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.mohamedalaa.com.vipreminder.services.FromGeofenceReminderService;
 
-import androidx.work.Data;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 import timber.log.Timber;
 
 /**
@@ -15,26 +13,24 @@ import timber.log.Timber;
  */
 public class GeofenceBroadcastReceiver extends BroadcastReceiver {
 
-    // --- Constants
-
-    public static final String INTENT_KEY_ROW_ID = "INTENT_KEY_ROW_ID";
-
     @Override
     public void onReceive(Context context, Intent intent) {
+        long rowId = -1;
+        if (intent != null){
+            // Used action not any other extra so that, I can cancel it with alarmManager.cancel();
+            String stringOfRowId = intent.getAction();
 
-        int rowId = -1;
-        if (intent != null && intent.hasExtra(INTENT_KEY_ROW_ID)){
-            rowId = intent.getIntExtra(INTENT_KEY_ROW_ID, rowId);
+            try {
+                rowId = Long.parseLong(stringOfRowId);
+            }catch (Exception e){
+                // In case of any un-expected error
+            }
         }
 
         // No need to make any initial delay as we want it to run immediately.
-        Data inputData = new Data.Builder()
-                .putLong(FromGeofenceReminderWorker.INPUT_DATA_KEY_REMINDER_ENTITY_ID, rowId)
-                .build();
-        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(FromGeofenceReminderWorker.class)
-                .setInputData(inputData)
-                .build();
-        WorkManager.getInstance().enqueue(workRequest);
+        Intent reminderServiceIntent = new Intent(context, FromGeofenceReminderService.class);
+        reminderServiceIntent.setAction(String.valueOf(rowId));
+        context.startService(reminderServiceIntent);
 
         Timber.v("inside onReceive of geofence broadcast, And rowId == " + rowId);
     }
