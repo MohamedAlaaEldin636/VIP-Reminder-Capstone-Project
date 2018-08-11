@@ -12,7 +12,6 @@ Created as part of Udacity [Android Developer Nanodegree Program](https://eg.uda
   
 2. TODOs 
   * put your google API Key in manifest 
-  * put in build.gradle your corresponding explorer file path in config of signing config and run the installRelease and now it works.
   
 3. Todo Notes in code beside comments. ( Notes for the reviewer )
 
