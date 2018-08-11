@@ -69,4 +69,7 @@ dependencies {
     // Google Services
     implementation 'com.google.android.gms:play-services-places:15.0.1'
     implementation 'com.google.android.gms:play-services-location:15.0.1'
+
+    // FirebaseJobDispatcher ( to make services be able to run on OREO and above )
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
 }

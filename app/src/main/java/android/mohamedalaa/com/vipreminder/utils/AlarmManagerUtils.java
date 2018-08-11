@@ -4,9 +4,17 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.mohamedalaa.com.vipreminder.services.JobReminderService;
 import android.mohamedalaa.com.vipreminder.services.RefreshGeofencesService;
 import android.mohamedalaa.com.vipreminder.services.ReminderService;
 import android.os.Build;
+import android.os.Bundle;
+
+import com.firebase.jobdispatcher.Driver;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Trigger;
 
 import timber.log.Timber;
 
@@ -25,6 +33,28 @@ public class AlarmManagerUtils {
      *      {@link android.mohamedalaa.com.vipreminder.services.ReminderService}
      */
     public static void setReminderAlarm(Context context, long rowId, long initialDelayInMillis){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            int delayInSeconds = ((int) initialDelayInMillis / 1000);
+
+            // Made below alternative for android Oreo and above due to the background limitation
+            // link -> https://developer.android.com/about/versions/oreo/background
+            // because if not done it will make error on devices running Oreo and above
+            Driver driver = new GooglePlayDriver(context.getApplicationContext());
+            FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
+            Bundle extras = new Bundle();
+            extras.putString(JobReminderService.BUNDLE_KEY_STRING_OF_ROW_ID, String.valueOf(rowId));
+            Job job = dispatcher.newJobBuilder()
+                    .setService(JobReminderService.class)
+                    .setTag(String.valueOf(rowId))
+                    .setRecurring(false)
+                    .setTrigger(Trigger.executionWindow(delayInSeconds, delayInSeconds + 30))
+                    .setExtras(extras)
+                    .build();
+            dispatcher.mustSchedule(job);
+
+            return;
+        }
+
         long fireAlarmAt = System.currentTimeMillis() + initialDelayInMillis;
 
         // Alarm Manager instance
@@ -69,6 +99,17 @@ public class AlarmManagerUtils {
     }
 
     public static void cancelAlarmManager(Context context, long rowId){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            // Made below alternative for android Oreo and above due to the background limitation
+            // link -> https://developer.android.com/about/versions/oreo/background
+            // because if not done it will make error on devices running Oreo and above
+            Driver driver = new GooglePlayDriver(context.getApplicationContext());
+            FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
+            dispatcher.cancel(String.valueOf(rowId));
+
+            return;
+        }
+
         // Alarm Manager instance
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (manager == null){
