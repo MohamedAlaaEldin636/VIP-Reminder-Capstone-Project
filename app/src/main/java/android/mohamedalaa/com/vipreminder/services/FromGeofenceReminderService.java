@@ -50,7 +50,7 @@ public class FromGeofenceReminderService extends IntentService {
             // No need to schedule alarm manager
             // As this is fired when we depend on places only or depend on both while
             // condition must NOT be met, which means work manager is already scheduled
-            // in the ReminderWorker.
+            // in the ReminderService.
         }
     }
 }

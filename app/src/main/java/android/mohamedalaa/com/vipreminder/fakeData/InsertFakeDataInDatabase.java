@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Mohamed on 8/5/2018.
  *
+ * Used in case reviewer or any other person who viewing this app wants to add fake data in the
+ * database, note these fake data won't make notification through alarm manager nor geofence
  */
 public class InsertFakeDataInDatabase {
 
