@@ -20,7 +20,7 @@
         <!-- TODO (1) -> insert-your-api-key-here -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDBlSZwTPkDC1YETdsdCdVUyBaUySoJqXQ" />
+            android:value="insert-your-api-key-here" />
 
         <activity android:name=".view.MainActivity">
             <intent-filter>
