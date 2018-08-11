@@ -102,9 +102,9 @@ public class JobReminderService extends JobService {
                         context.getString(R.string.weekly), context.getString(R.string.monthly),
                         context.getString(R.string.yearly)).doInBackground();
             }
-
-            jobFinished(job, false);
         }).start();
+
+        jobFinished(job, false);
 
         return true;
     }

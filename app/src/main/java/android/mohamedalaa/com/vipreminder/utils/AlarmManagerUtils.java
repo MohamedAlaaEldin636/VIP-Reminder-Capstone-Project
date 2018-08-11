@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.mohamedalaa.com.vipreminder.services.JobRefreshGeofencesService;
 import android.mohamedalaa.com.vipreminder.services.JobReminderService;
 import android.mohamedalaa.com.vipreminder.services.RefreshGeofencesService;
 import android.mohamedalaa.com.vipreminder.services.ReminderService;
@@ -34,7 +35,8 @@ public class AlarmManagerUtils {
      */
     public static void setReminderAlarm(Context context, long rowId, long initialDelayInMillis){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            int delayInSeconds = ((int) initialDelayInMillis / 1000);
+            long longDelayInSeconds = initialDelayInMillis / 1000;
+            int delayInSeconds = Integer.parseInt(String.valueOf(longDelayInSeconds));
 
             // Made below alternative for android Oreo and above due to the background limitation
             // link -> https://developer.android.com/about/versions/oreo/background
@@ -77,6 +79,26 @@ public class AlarmManagerUtils {
     }
 
     public static void setRefreshGeofenceAlarm(Context context, long initialDelayInMillis){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            long longDelayInSeconds = initialDelayInMillis / 1000;
+            int delayInSeconds = Integer.parseInt(String.valueOf(longDelayInSeconds));
+
+            // Made below alternative for android Oreo and above due to the background limitation
+            // link -> https://developer.android.com/about/versions/oreo/background
+            // because if not done it will make error on devices running Oreo and above
+            Driver driver = new GooglePlayDriver(context.getApplicationContext());
+            FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
+            Job job = dispatcher.newJobBuilder()
+                    .setService(JobRefreshGeofencesService.class)
+                    .setTag(JobRefreshGeofencesService.INTENT_ACTION_REFRESH_GEOFENCE_SERVICE)
+                    .setRecurring(false)
+                    .setTrigger(Trigger.executionWindow(delayInSeconds, delayInSeconds + 30))
+                    .build();
+            dispatcher.mustSchedule(job);
+
+            return;
+        }
+
         long fireAlarmAt = System.currentTimeMillis() + initialDelayInMillis;
 
         // Alarm Manager instance
@@ -124,6 +146,17 @@ public class AlarmManagerUtils {
     }
 
     public static void cancelRefreshGeofenceAlarmManager(Context context){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            // Made below alternative for android Oreo and above due to the background limitation
+            // link -> https://developer.android.com/about/versions/oreo/background
+            // because if not done it will make error on devices running Oreo and above
+            Driver driver = new GooglePlayDriver(context.getApplicationContext());
+            FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
+            dispatcher.cancel(JobRefreshGeofencesService.INTENT_ACTION_REFRESH_GEOFENCE_SERVICE);
+
+            return;
+        }
+
         // Alarm Manager instance
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (manager == null){

@@ -79,6 +79,7 @@ public class GeofenceStatic {
             // since timeout cannot be FOREVER since that thing is dangerous to be used
             // since even when this app is un-installed the geofence will remain
             // so better to have timeout and i chose 1 month
+            Timber.v("GEOFENCE_TIMEOUT -> " + GEOFENCE_TIMEOUT);
             AlarmManagerUtils.setRefreshGeofenceAlarm(context, GEOFENCE_TIMEOUT);
 
             Timber.v("Done with making geofence worker");
